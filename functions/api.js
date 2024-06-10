@@ -2,8 +2,8 @@ const express = require('express');
 const serverless = require('serverless-http');
 const router = require('./routes/orderRoutes');
 const mongoose = require('mongoose');
-const cors = require('cors');
 const app = express();
+const cors = require('cors');
 
 const MongoDbCloud = 'mongodb+srv://kennethmontero46:LZD6aKIY74F78paF@cluster0.he5qpb9.mongodb.net/Order?retryWrites=true&w=majority&appName=Cluster0';
 

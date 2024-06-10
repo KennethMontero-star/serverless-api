@@ -18,7 +18,7 @@ function App() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('https://order-status-montero.netlify.app/.netlify/functions/api');
+        const response = await axios.get('https://main--orderapi.netlify.app/.netlify/functions/api');
         setData(response.data);
       } catch (error) {
         setError(error);
@@ -40,7 +40,7 @@ function App() {
   const handleSave = async (index) => {
     const updatedItem = data[index];
     try {
-      await axios.put(`https://order-status-montero.netlify.app/.netlify/functions/api/${updatedItem._id}`, updatedItem);
+      await axios.put(`https://main--orderapi.netlify.app/.netlify/functions/api/${updatedItem._id}`, updatedItem);
       setEditIndex(-1);
     } catch (error) {
       console.error("Error updating the item", error);
@@ -56,7 +56,7 @@ function App() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`https://order-status-montero.netlify.app/.netlify/functions/api/${id}`);
+      await axios.delete(`https://main--orderapi.netlify.app/.netlify/functions/api/${id}`);
       const updatedData = data.filter(item => item._id !== id);
       setData(updatedData);
     } catch (error) {
@@ -88,7 +88,7 @@ function App() {
   const handleAdd = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('https://order-status-montero.netlify.app/.netlify/functions/api', newItem);
+      const response = await axios.post('https://main--orderapi.netlify.app/.netlify/functions/api', newItem);
       setData(prevData => [...prevData, response.data]); // Update state with new data
       setNewItem({
         customerName: '',
